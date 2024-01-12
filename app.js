@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const secretKey = 'kevin-rionaldo';
+const secretKey = 'eyjrajandkasdnaj21njk3n1123214123nsdxnvcv12321jsndsdnsdns';
 
 app.use(bodyParser.json());
 
@@ -38,7 +38,7 @@ const authorize = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, secretKey);
+    const decoded = jwt.verify(token.replace('Bearer ', ''), secretKey);
     req.user = decoded;
     next();
   } catch (error) {
@@ -103,7 +103,8 @@ app.post('/clockout', (req, res) => {
 
 // Get all attendance records (for testing purposes)
 app.get('/attendance', (req, res) => {
-  res.json({ attendanceRecords });
+  const sortedAttendance = attendanceRecords.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  res.json({ sortedAttendance });
 });
 
 app.listen(PORT, () => {
