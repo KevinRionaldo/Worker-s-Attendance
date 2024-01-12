@@ -1,6 +1,6 @@
 # Worker-s-Attendance
 
-1.Install Node.js: Make sure you have Node.js installed on your machine. You can download it from the official website: Node.js Downloads.
+1. Install Node.js: Make sure you have Node.js installed on your machine. You can download it from the official website: Node.js Downloads.
 
 2. Install the required dependencies using the following command: npm install express body-parser jsonwebtoken
 
